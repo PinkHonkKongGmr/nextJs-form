@@ -1,0 +1,18 @@
+.applicantQuestionnaire {
+  margin-top: 80px;
+  padding-left: 16px;
+  h1 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 38px;
+    margin-bottom: 55px;
+  }
+}
+
+@media (min-width: 480px) {
+  .applicantQuestionnaire {
+    margin-top: 102px;
+    padding-left: 256px;
+  }
+}

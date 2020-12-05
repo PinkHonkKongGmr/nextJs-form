@@ -1,0 +1,57 @@
+$height: 40px;
+.form {
+  width: 375px;
+  padding-bottom: 69px;
+  h2 {
+    margin-bottom: 20px;
+  }
+  button {
+    width: 343px;
+    height: $height;
+  }
+
+  .genderRadioFieldset {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    [class="ant-form-item-required"] {
+      margin-bottom: 25px;
+    }
+  }
+  .agreementCheckoutFieldset {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  input {
+    height: $height;
+  }
+
+  [class="ant-radio-wrapper"] {
+    width: 98px;
+  }
+  [class="ant-radio-wrapper ant-radio-wrapper-checked"] {
+    width: 98px;
+  }
+}
+
+@media (min-width: 480px) {
+  .form {
+    width: 100%;
+    fieldset {
+      display: flex;
+    }
+    button {
+      width: 360px;
+    }
+    [class="ant-radio-wrapper"] {
+      width: 178px;
+    }
+    [class="ant-radio-wrapper ant-radio-wrapper-checked"] {
+      width: 178px;
+    }
+
+    input {
+      width: 256px;
+    }
+  }
+}

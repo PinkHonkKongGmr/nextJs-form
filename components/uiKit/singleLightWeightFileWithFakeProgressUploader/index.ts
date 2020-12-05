@@ -1,0 +1,3 @@
+import SingleLightWeightFileWithFakeProgressUploader from "./singleLightWeightFileWithFakeProgressUploader";
+
+export default SingleLightWeightFileWithFakeProgressUploader;

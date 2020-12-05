@@ -1,0 +1,33 @@
+$paddingtop: 30px;
+$desktopInputWidth: 256px;
+.antUploadCustom {
+  position: relative;
+  & [class="ant-upload-list ant-upload-list-text"] {
+    position: absolute !important;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.plusIcon {
+  position: absolute;
+  left: 55px;
+}
+
+@media (min-width: 480px) {
+  .fakeProgressRunnerWrapper {
+    width: $desktopInputWidth;
+    padding-top: $paddingtop;
+  }
+  .antUploadCustom {
+    height: 80px;
+    padding-top: $paddingtop;
+    & [class="ant-upload-list ant-upload-list-text"] {
+      top: 30px;
+      width: $desktopInputWidth;
+    }
+  }
+  .plusIcon {
+    left: 11px;
+  }
+}
