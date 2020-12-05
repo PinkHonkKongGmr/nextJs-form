@@ -27,12 +27,10 @@ export default function ApplicantQuestionnaire() {
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={[
-
-          <Button key="submit" type="primary"onClick={handleOk}>
+          <Button key="submit" type="primary" onClick={handleOk}>
             Понятно
           </Button>,
         ]}
-      >
       >
         <p>Some contents...</p>
         <p>Some contents...</p>
