@@ -16,6 +16,8 @@ export const submitButton = {
 
 export const applicantFormConsts = {
   ru: {
+    title: "Анкета соискателя",
+    personalData: "Личные данные",
     name: {
       name: "name",
       label: "Имя",

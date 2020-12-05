@@ -35,7 +35,7 @@ export default function ApplicantForm() {
         initialValues={{ remember: true }}
         onFinish={onFinish}
       >
-        <h2>Личные данные</h2>
+        <h2>{regionConstatns.personalData}</h2>
         <fieldset className="pairInputsfieldset">
           <Form.Item
             label={regionConstatns.name.label}
