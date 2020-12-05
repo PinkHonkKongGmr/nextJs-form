@@ -1,1 +1,1 @@
-export const onlyLetters = new RegExp(/[a-zA-Z]+/g);
+export const onlyLetters = new RegExp(/^[A-Za-zА-Яа-я]+$/gm);

@@ -7,7 +7,7 @@ import {
 import "antd/dist/antd.css";
 import classes from "./applicantForm.module.scss";
 
-export default function ApplicantForm() {
+export default function ApplicantForm({ agree }) {
   const region = "ru";
   const regionConstatns = applicantFormConsts[region];
   const layout = {
@@ -122,7 +122,16 @@ export default function ApplicantForm() {
 
         <fieldset className={classes.agreementCheckoutFieldset}>
           <Form.Item name="remember" valuePropName="checked">
-            <Checkbox>* Я согласен с политикой конфиденциальности</Checkbox>
+            <Checkbox>
+              * Я согласен с
+              <button
+                className={classes.agreeBtn}
+                type="button"
+                onClick={agree}
+              >
+                политикой конфиденциальности
+              </button>
+            </Checkbox>
           </Form.Item>
         </fieldset>
 

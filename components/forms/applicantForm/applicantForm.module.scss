@@ -10,6 +10,16 @@ $height: 40px;
     height: $height;
   }
 
+  .agreeBtn {
+    width: auto;
+    cursor: pointer;
+    color: #1890ff;
+    text-decoration: underline;
+    border: none;
+    background: transparent;
+    outline: none !important;
+  }
+
   .genderRadioFieldset {
     margin-top: 20px;
     margin-bottom: 10px;
