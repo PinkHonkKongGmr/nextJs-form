@@ -1,3 +1,3 @@
-import SingleLightWeightFileWithFakeProgressUploader from "./singleLightWeightFileWithFakeProgressUploader";
+import SingleLightWeightFileWithFakeProgressUploader from "./singleLightWeightFileWithFakeProgressUploader.jsx";
 
 export default SingleLightWeightFileWithFakeProgressUploader;
