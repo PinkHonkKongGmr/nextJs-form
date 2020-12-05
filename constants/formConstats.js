@@ -34,6 +34,9 @@ export const applicantFormConsts = {
       label: "Электронная почта",
       message: templates.ru.emailTemplate(),
     },
+    resume: {
+      text: "Загрузить резюме",
+    },
     gender: {
       name: "gender",
       label: "Пол",

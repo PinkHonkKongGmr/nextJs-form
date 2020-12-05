@@ -5,7 +5,9 @@ import Button from "../uploaderButton";
 import "antd/dist/antd.css";
 import classes from "./uploader.module.scss";
 
-export default function SingleLightWeightFileWithFakeProgressUploader() {
+export default function SingleLightWeightFileWithFakeProgressUploader({
+  text,
+}) {
   const [isProgressRun, setIsProgressRun] = useState(false);
   const [isFileUpload, setIsFileUpload] = useState(false);
   const [opacityOfTheUploadWrapper, setOpacityOfTheUploadWrapper] = useState(1);
@@ -47,8 +49,7 @@ export default function SingleLightWeightFileWithFakeProgressUploader() {
         <Upload {...uploadProps}>
           {!isFileUpload && (
             <Button>
-              <img src="/plus.svg" className={classes.plusIcon} /> Загрузить
-              резюме
+              <img src="/plus.svg" className={classes.plusIcon} /> {text}
             </Button>
           )}
         </Upload>

@@ -79,7 +79,9 @@ export default function ApplicantForm() {
           >
             <Input placeholder={regionConstatns.email.label} />
           </Form.Item>
-          <SingleLightWeightFileWithFakeProgressUploader />
+          <SingleLightWeightFileWithFakeProgressUploader
+            text={regionConstatns.resume.text}
+          />
         </fieldset>
 
         <h2>{regionConstatns.gender.label}*</h2>
