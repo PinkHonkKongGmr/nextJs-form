@@ -25,7 +25,7 @@ export default function SingleLightWeightFileWithFakeProgressUploader({
           setIsProgressRun(false);
         }, 300);
       }
-      if (info.file.status === "done") {
+      if (info.file.status === "done" || info.file.status === "error") {
         setIsFileUpload(true);
       }
     },
