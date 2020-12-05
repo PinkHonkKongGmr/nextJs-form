@@ -72,7 +72,7 @@ export default function ApplicantForm({ agree }) {
             rules={[
               {
                 required: true,
-                type: regionConstatns.email.name,
+                type: "email",
                 message: regionConstatns.email.message,
               },
             ]}
@@ -111,7 +111,7 @@ export default function ApplicantForm({ agree }) {
             rules={[
               {
                 required: false,
-                type: regionConstatns.github.type,
+                type: "url",
                 message: regionConstatns.github.message,
               },
             ]}
