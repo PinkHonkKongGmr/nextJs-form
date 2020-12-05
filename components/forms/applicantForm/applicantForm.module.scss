@@ -5,8 +5,11 @@ $height: 40px;
   h2 {
     margin-bottom: 20px;
   }
+  [class="ant-upload ant-upload-select ant-upload-select-text"] {
+    width: 100%;
+  }
   button {
-    width: 343px;
+    width: 100%;
     height: $height;
   }
 
