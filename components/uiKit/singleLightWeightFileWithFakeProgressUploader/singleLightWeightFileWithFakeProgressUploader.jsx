@@ -17,7 +17,6 @@ export default function SingleLightWeightFileWithFakeProgressUploader({
       setIsProgressRun(true);
     },
     onChange(info) {
-      console.log("info", info);
       const event = info.event;
       if (event) {
         setTimeout(() => {
