@@ -9,6 +9,8 @@ Build with using ts and redux
 <br>
 ------------------------
 <br>
+mobile-first using 
+<br>
 ui-library: ANT-design
 <br>
 ------------------------
