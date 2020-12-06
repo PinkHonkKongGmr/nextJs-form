@@ -9,7 +9,7 @@ import {
 import "antd/dist/antd.css";
 import classes from "./applicantForm.module.scss";
 
-export default function ApplicantForm({ agree, local }) {
+export default function ApplicantForm({ showConfirm, local }) {
   const dispatch = useDispatch();
   const region = local;
   const regionConstatns = applicantFormConsts[region];
@@ -29,6 +29,7 @@ export default function ApplicantForm({ agree, local }) {
   };
   const onFinish = (values) => {
     dispatch(getnameOfapplicant(values.name));
+    showConfirm();
   };
   return (
     <div className={classes.form}>
@@ -130,7 +131,7 @@ export default function ApplicantForm({ agree, local }) {
               <button
                 className={classes.agreeBtn}
                 type="button"
-                onClick={agree}
+                onClick={() => {}}
               >
                 политикой конфиденциальности
               </button>
