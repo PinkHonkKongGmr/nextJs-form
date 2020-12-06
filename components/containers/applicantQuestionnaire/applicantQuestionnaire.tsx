@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { rootState } from "../../../store/reducers/rootReducer";
 import ConfirmModal from "../../modals/confirm";
+import Agreement from "../../modals/componentsForModals/applicantAgree";
 import ApplicantForm from "../../forms/applicantForm";
 import { applicantFormConsts } from "../../../constants/formConstats";
 import { applicantModalConstants } from "../../../constants/modalConstants";
 import classes from "./applicantQuestionnaire.module.scss";
-import { rootState } from "../../../store/reducers/rootReducer";
+
 export default function ApplicantQuestionnaire() {
   const [isConfirmModalVisible, setConfirmIsModalVisible] = useState(false);
+  const [isAgreeModalVisible, setAgreeIsModalVisible] = useState(false);
   const name = useSelector<rootState>(
     (state) => state.applicantQuestionnaire.name
   );
@@ -25,10 +28,26 @@ export default function ApplicantQuestionnaire() {
     setConfirmIsModalVisible(false);
   };
 
+  const showAgreeModal = () => {
+    setAgreeIsModalVisible(true);
+  };
+
+  const handleOkAgree = () => {
+    setAgreeIsModalVisible(false);
+  };
+
+  const handleCancelAgree = () => {
+    setAgreeIsModalVisible(false);
+  };
+
   return (
     <div className={classes.applicantQuestionnaire}>
       <h1>{applicantFormConsts[local].title}</h1>
-      <ApplicantForm showConfirm={showConfirmModal} local={local} />
+      <ApplicantForm
+        showConfirm={showConfirmModal}
+        showAgree={showAgreeModal}
+        local={local}
+      />
       <ConfirmModal
         title={`${applicantModalConstants[local].confirm.thank}${name}`}
         text={applicantModalConstants[local].confirm.text}
@@ -36,6 +55,14 @@ export default function ApplicantQuestionnaire() {
         visible={isConfirmModalVisible}
         ok={handleOk}
         cancel={handleCancel}
+      />
+      <ConfirmModal
+        title={applicantModalConstants[local].agreement.title}
+        text={<Agreement />}
+        btnText={applicantModalConstants[local].agreement.btnText}
+        visible={isAgreeModalVisible}
+        ok={handleOkAgree}
+        cancel={handleCancelAgree}
       />
     </div>
   );

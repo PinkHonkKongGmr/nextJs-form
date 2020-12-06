@@ -1,6 +1,6 @@
 import { useState } from "react";
 import FakeProgressRunner from "../fakeProgressRunner";
-import { Upload } from "antd";
+import { Upload, notification } from "antd";
 import Button from "../uploaderButton";
 import "antd/dist/antd.css";
 import classes from "./uploader.module.scss";
@@ -10,11 +10,20 @@ export default function SingleLightWeightFileWithFakeProgressUploader({
 }) {
   const [isProgressRun, setIsProgressRun] = useState(false);
   const [isFileUpload, setIsFileUpload] = useState(false);
+  const [isWarn, setIsWarn] = useState(false);
   const [opacityOfTheUploadWrapper, setOpacityOfTheUploadWrapper] = useState(1);
   const uploadProps = {
-    beforeUpload() {
-      setOpacityOfTheUploadWrapper(0);
-      setIsProgressRun(true);
+    beforeUpload(file) {
+      if (file.size < 16000000) {
+        setOpacityOfTheUploadWrapper(0);
+        setIsProgressRun(true);
+      } else {
+        setIsWarn(true);
+        notification.open({
+          message: "Загружаемый файл слишком большой",
+          description: "загружайте файл размером не более 16 mb",
+        });
+      }
     },
     onChange(info) {
       const event = info.event;
@@ -25,13 +34,20 @@ export default function SingleLightWeightFileWithFakeProgressUploader({
         }, 300);
       }
       if (info.file.status === "done" || info.file.status === "error") {
+        info.fileList = [];
+        console.log(info.fileList);
         setIsFileUpload(true);
       }
     },
     onRemove() {
       setIsFileUpload(false);
+      setIsWarn(false);
     },
   };
+
+  const classname = isWarn
+    ? `${classes.antUploadCustom} ${classes.warn}`
+    : classes.antUploadCustom;
 
   return (
     <>
@@ -41,7 +57,7 @@ export default function SingleLightWeightFileWithFakeProgressUploader({
         </div>
       )}
       <div
-        className={classes.antUploadCustom}
+        className={classname}
         style={{
           opacity: opacityOfTheUploadWrapper,
         }}

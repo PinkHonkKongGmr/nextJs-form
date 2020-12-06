@@ -44,6 +44,10 @@ a {
   line-height: 38px;
 }
 
+.ant-upload-list-item:hover .ant-upload-list-item-info {
+  background: transparent !important;
+}
+
 @media (min-width: 480px) {
   .pairInputsfieldset .ant-row:nth-child(1) {
     width: 336px !important;

@@ -7,6 +7,18 @@ $desktopInputWidth: 256px;
     top: 0;
     width: 100%;
   }
+  [class="ant-upload-span"] {
+    background-color: #e6f7ff;
+    height: 40px;
+  }
+}
+
+.warn {
+  [class="ant-upload-span"] {
+    background-color: #ff4d4f;
+    position: relative;
+    z-index: 90;
+  }
 }
 
 .plusIcon {
@@ -23,7 +35,7 @@ $desktopInputWidth: 256px;
     height: 80px;
     padding-top: $paddingtop;
     & [class="ant-upload-list ant-upload-list-text"] {
-      top: 30px;
+      top: 24px;
       width: $desktopInputWidth;
     }
   }
