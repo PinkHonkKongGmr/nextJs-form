@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Modal, Button } from "antd";
+import ConfirmModal from "../../modals/confirm";
 import ApplicantForm from "../../forms/applicantForm";
 import { applicantFormConsts } from "../../../constants/formConstats";
+import { applicantModalConstants } from "../../../constants/modalConstants";
 import classes from "./applicantQuestionnaire.module.scss";
 export default function ApplicantQuestionnaire() {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -22,20 +23,14 @@ export default function ApplicantQuestionnaire() {
     <div className={classes.applicantQuestionnaire}>
       <h1>{applicantFormConsts.ru.title}</h1>
       <ApplicantForm agree={showModal} />
-      <Modal
-        title="Basic Modal"
+      <ConfirmModal
+        title={applicantModalConstants.ru.confirm.thank}
+        text={applicantModalConstants.ru.confirm.text}
+        btnText={applicantModalConstants.ru.confirm.btnText}
         visible={isModalVisible}
-        onCancel={handleCancel}
-        footer={[
-          <Button key="submit" type="primary" onClick={handleOk}>
-            Понятно
-          </Button>,
-        ]}
-      >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Modal>
+        ok={handleOk}
+        cancel={handleCancel}
+      />
     </div>
   );
 }
