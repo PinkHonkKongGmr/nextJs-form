@@ -11,6 +11,7 @@ export default function ApplicantQuestionnaire() {
   const name = useSelector<rootState>(
     (state) => state.applicantQuestionnaire.name
   );
+  const local = useSelector<rootState>((state) => state.locals.local);
 
   const showModal = () => {
     setIsModalVisible(true);
@@ -24,15 +25,14 @@ export default function ApplicantQuestionnaire() {
     setIsModalVisible(false);
   };
 
-  console.log("name", name);
   return (
     <div className={classes.applicantQuestionnaire}>
-      <h1>{applicantFormConsts.ru.title}</h1>
-      <ApplicantForm agree={showModal} />
+      <h1>{applicantFormConsts[local].title}</h1>
+      <ApplicantForm agree={showModal} local={local} />
       <ConfirmModal
-        title={applicantModalConstants.ru.confirm.thank}
-        text={applicantModalConstants.ru.confirm.text}
-        btnText={applicantModalConstants.ru.confirm.btnText}
+        title={`${applicantModalConstants[local].confirm.thank}${name}`}
+        text={applicantModalConstants[local].confirm.text}
+        btnText={applicantModalConstants[local].confirm.btnText}
         visible={isModalVisible}
         ok={handleOk}
         cancel={handleCancel}

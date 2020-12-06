@@ -1,3 +1,5 @@
+import { useDispatch } from "react-redux";
+import { getnameOfapplicant } from "../../../store/actions/getNameOfapplicant";
 import { Form, Input, Button, Radio, Checkbox } from "antd";
 import SingleLightWeightFileWithFakeProgressUploader from "../../uiKit/singleLightWeightFileWithFakeProgressUploader";
 import {
@@ -7,8 +9,9 @@ import {
 import "antd/dist/antd.css";
 import classes from "./applicantForm.module.scss";
 
-export default function ApplicantForm({ agree }) {
-  const region = "ru";
+export default function ApplicantForm({ agree, local }) {
+  const dispatch = useDispatch();
+  const region = local;
   const regionConstatns = applicantFormConsts[region];
   const layout = {
     labelCol: {
@@ -25,7 +28,7 @@ export default function ApplicantForm({ agree }) {
     },
   };
   const onFinish = (values) => {
-    console.log("Success:", values);
+    dispatch(getnameOfapplicant(values.name));
   };
   return (
     <div className={classes.form}>
