@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { rootState } from "../../../store/reducers/rootReducer";
 import ConfirmModal from "../../modals/confirm";
@@ -11,6 +11,10 @@ import classes from "./applicantQuestionnaire.module.scss";
 export default function ApplicantQuestionnaire() {
   const [isConfirmModalVisible, setConfirmIsModalVisible] = useState(false);
   const [isAgreeModalVisible, setAgreeIsModalVisible] = useState(false);
+  const [screenSize, setScreenSize] = useState(0);
+  useEffect(() => {
+    setScreenSize(window.screen.availWidth);
+  }, []);
   const name = useSelector<rootState>(
     (state) => state.applicantQuestionnaire.name
   );
@@ -40,6 +44,8 @@ export default function ApplicantQuestionnaire() {
     setAgreeIsModalVisible(false);
   };
 
+  const agreeModalWidth = screenSize > 1000 ? "758px" : "90%";
+
   return (
     <div className={classes.applicantQuestionnaire}>
       <h1>{applicantFormConsts[local].title}</h1>
@@ -63,6 +69,7 @@ export default function ApplicantQuestionnaire() {
         visible={isAgreeModalVisible}
         ok={handleOkAgree}
         cancel={handleCancelAgree}
+        width={agreeModalWidth}
       />
     </div>
   );
