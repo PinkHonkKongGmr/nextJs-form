@@ -19,7 +19,7 @@ export default function ModalConfirm({
   ok,
   cancel,
   width,
-}) {
+}: modalConfirmType) {
   return width ? (
     <Modal
       title={title}
