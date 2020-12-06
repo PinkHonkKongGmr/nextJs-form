@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getnameOfapplicant } from "../../../store/actions/getNameOfapplicant";
 import { Form, Input, Button, Radio, Checkbox } from "antd";
@@ -10,6 +11,7 @@ import "antd/dist/antd.css";
 import classes from "./applicantForm.module.scss";
 
 export default function ApplicantForm({ showConfirm, showAgree, local }) {
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
   const dispatch = useDispatch();
   const region = local;
   const regionConstatns = applicantFormConsts[region];
@@ -125,8 +127,12 @@ export default function ApplicantForm({ showConfirm, showAgree, local }) {
         </fieldset>
 
         <fieldset className={classes.agreementCheckoutFieldset}>
-          <Form.Item name="remember" valuePropName="checked">
-            <Checkbox>
+          <Form.Item name="remember">
+            <Checkbox
+              onChange={() => {
+                setIsSubmitDisabled(!isSubmitDisabled);
+              }}
+            >
               * Я согласен с
               <button
                 className={classes.agreeBtn}
@@ -140,7 +146,7 @@ export default function ApplicantForm({ showConfirm, showAgree, local }) {
         </fieldset>
 
         <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" disabled={isSubmitDisabled}>
             {submitButton[region]}
           </Button>
         </Form.Item>
