@@ -5,9 +5,12 @@ import ApplicantForm from "../../forms/applicantForm";
 import { applicantFormConsts } from "../../../constants/formConstats";
 import { applicantModalConstants } from "../../../constants/modalConstants";
 import classes from "./applicantQuestionnaire.module.scss";
+import { rootState } from "../../../store/reducers/rootReducer";
 export default function ApplicantQuestionnaire() {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const name = useSelector((state) => state.applicantQuestionnaire.name);
+  const name = useSelector<rootState>(
+    (state) => state.applicantQuestionnaire.name
+  );
 
   const showModal = () => {
     setIsModalVisible(true);
